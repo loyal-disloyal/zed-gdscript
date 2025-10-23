@@ -1,25 +1,25 @@
+authors = ["Mark Brand <mark@grndctrl.com>", "Richard Taylor <moomerman@gmail.com>", "Radu Gafita <radugaf@gmail.com>", "Nathan Lovato <nathan@gdquest.com>", "Artemy Fedotov <catlovescpp@gmail.com>"]
+description = "Godot game engine support for Zed. Adds support for GDScript, Godot Resources (.tres, .tscn), and GDShader files."
 id = "gdscript"
 name = "GDScript"
-version = "0.6.0"
-schema_version = 1
-authors = [ "Mark Brand <mark@grndctrl.com>", "Richard Taylor <moomerman@gmail.com>", "Radu Gafita <radugaf@gmail.com>", "Nathan Lovato <nathan@gdquest.com>", "Artemy Fedotov <catlovescpp@gmail.com>"]
-description = "Godot game engine support for Zed. Adds support for GDScript, Godot Resources (.tres, .tscn), and GDShader files."
 repository = "https://github.com/grndctrl/zed-gdscript"
-
-[language_servers.gdscript]
-name = "GDScript Language Server"
-language = "GDScript"
-
-[grammars.gdscript]
-repository = "https://github.com/PrestonKnopp/tree-sitter-gdscript"
-commit = "0b9f60ebaa1c31f5153dd3a3b283ca0725734378"
-
-[grammars.godot_resource]
-repository = "https://github.com/PrestonKnopp/tree-sitter-godot-resource"
-commit = "2ffb90de47417018651fc3b970e5f6b67214dc9d"
-
-[grammars.gdshader]
-repository = "https://github.com/GodOfAvacyn/tree-sitter-gdshader"
-commit = "ffd9f958df13cae04593781d7d2562295a872455"
+schema_version = 1
+version = "0.7.0"
 
 [debug_adapters.godot]
+
+[grammars.gdscript]
+commit = "0b9f60ebaa1c31f5153dd3a3b283ca0725734378"
+repository = "https://github.com/PrestonKnopp/tree-sitter-gdscript"
+
+[grammars.gdshader]
+commit = "ffd9f958df13cae04593781d7d2562295a872455"
+repository = "https://github.com/GodOfAvacyn/tree-sitter-gdshader"
+
+[grammars.godot_resource]
+commit = "2ffb90de47417018651fc3b970e5f6b67214dc9d"
+repository = "https://github.com/PrestonKnopp/tree-sitter-godot-resource"
+
+[language_servers.gdscript]
+language = "GDScript"
+name = "GDScript Language Server"
