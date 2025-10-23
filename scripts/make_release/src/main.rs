@@ -29,6 +29,10 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
 
     std::env::set_current_dir(ZED_GDSCRIPT_REPO_DIR)?;
+    if !std::path::Path::new("extension.toml").exists() {
+        eprintln!("Error: extension.toml not found in the zed-gdscript repository.");
+        std::process::exit(1);
+    }
     let output = Command::new("git").args(["status", "--porcelain"]).output()?;
     if !output.stdout.is_empty() {
         eprintln!("Error: The zed-gdscript git working directory is not clean. Please commit or stash changes before running this script.");
@@ -88,9 +92,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     Command::new("git").args(["push"]).status()?;
     Command::new("git").args(["push", "--tags"]).status()?;
 
-    let output = Command::new("git").args(["rev-parse", "HEAD"]).output()?;
-    let head = String::from_utf8_lossy(&output.stdout).trim().to_string();
-
     std::env::set_current_dir(ZED_EXTENSIONS_DIR)?;
 
     let branch_name = format!("update-gdscript-v{}", new_version_str);
@@ -103,13 +104,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     fs::write("extension.toml", toml::to_string(&zed_extensions_toml)?)?;
 
     Command::new("git")
-        .args([
-            "update-index",
-            "--cacheinfo",
-            "160000",
-            &head.to_string(),
-            "extensions/gdscript",
-        ])
+        .args(["submodule", "update", "--remote", "extensions/gdscript"])
         .status()?;
 
     Command::new("git")
