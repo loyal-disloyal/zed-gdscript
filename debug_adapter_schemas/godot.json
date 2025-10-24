@@ -27,6 +27,15 @@
     "port": {
       "type": "integer",
       "default": 6006
+    },
+    "playArgs": {
+      "type": "array",
+      "description": "Command line arguments to pass to instance(s)"
+    },
+    "scene": {
+      "type": "string",
+      "default": "main",
+      "description": "Possible values: main, current, or path to a custom scene"
     }
   },
   "required": ["request"]
