@@ -1,6 +1,6 @@
 name = "GDShader"
 grammar = "gdshader"
-path_suffixes = ["gdshader"]
+path_suffixes = ["gdshader", "gdshaderinc"]
 line_comments = ["// "]
 block_comment = ["/* ", " */"]
 brackets = [
