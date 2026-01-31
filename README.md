@@ -20,6 +20,8 @@ You can install Netcat from your package manager:
 - On Fedora Linux: `sudo dnf install nmap-ncat`.
 - On macOS: `brew install netcat`.
 
+Note that the installed program might be called `nc` or `ncat`, depending on your operating system and package manager (short for netcat). The extension will try to find either of them in your system PATH.
+
 ### Installing the Zed GDScript Extension
 
 1. Open Zed.
